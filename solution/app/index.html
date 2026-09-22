@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Clip-Path Shape Editor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="toolbar">
+    <div class="toolbar-title">CSS Shape Editor</div>
+    <div class="shape-picker" id="shapePicker">
+      <button data-type="circle" class="active"><span class="icon-shape circle"></span>Circle</button>
+      <button data-type="ellipse"><span class="icon-shape ellipse"></span>Ellipse</button>
+      <button data-type="inset"><span class="icon-shape rect"></span>Rectangle</button>
+      <button data-type="polygon" data-kind="triangle"><span class="icon-shape triangle"></span>Triangle</button>
+      <button data-type="polygon" data-kind="pentagon"><span class="icon-shape pentagon"></span>Pentagon</button>
+      <button data-type="polygon" data-kind="hexagon"><span class="icon-shape hexagon"></span>Hexagon</button>
+      <button data-type="polygon" data-kind="star"><span class="icon-shape star"></span>Star</button>
+      <button data-type="polygon" data-kind="custom"><span class="icon-shape custom"></span>Custom</button>
+    </div>
+    <button id="addShapeBtn">+ Add Shape</button>
+    <button id="addPointModeBtn" hidden>Add Point Mode</button>
+  </header>
+  <main id="main">
+    <div id="stage-wrap">
+      <div id="stage"></div>
+      <div id="overlay"></div>
+    </div>
+    <aside id="sidebar">
+      <section id="layersPanel">
+        <h2>Layers</h2>
+        <ul id="layersList"></ul>
+        <p class="empty-hint" id="layersEmptyHint">No shapes yet. Add one from the toolbar above.</p>
+      </section>
+      <section id="shapeSettings" hidden>
+        <h2>Shape Settings</h2>
+        <div class="settings-grid" id="positionGrid">
+          <label>X<input type="number" id="xInput" step="1"></label>
+          <label>Y<input type="number" id="yInput" step="1"></label>
+          <label>W<input type="number" id="wInput" step="1" min="20"></label>
+          <label>H<input type="number" id="hInput" step="1" min="20"></label>
+          <label>Rotation<input type="number" id="rotationInput" step="1" min="-360" max="360"></label>
+        </div>
+        <label class="settings-row" id="borderRadiusRow">
+          <span>Corner Radius</span>
+          <input type="range" id="borderRadiusSlider" min="0" max="50" step="1" value="0">
+          <span id="borderRadiusValue">0%</span>
+        </label>
+      </section>
+      <section id="cssPanel">
+        <h2>CSS Output</h2>
+        <pre id="cssOutput">Select a shape to see its CSS.</pre>
+        <button id="copyCssBtn">Copy CSS</button>
+      </section>
+    </aside>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
